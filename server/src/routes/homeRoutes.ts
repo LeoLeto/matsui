@@ -119,6 +119,9 @@ router.post("/logout", (req: Request, res: Response) => {
 });
 
 router.post("/register", async (req: Request, res: Response) => {
+  console.log(MAILTRAP_PASSWORD)
+  res.json({MAILTRAP_PASSWORD});
+  return
   try {
     const fetchedUser = await getUserByEmail(req.body.email);
     if (fetchedUser !== null) {

@@ -88,6 +88,7 @@ export function Login() {
         // withCredentials: true,
       })
       .then((response: AxiosResponse) => {
+        console.log("response: ", response.data)
         setIsRegisterButtonLoading(false);
         if (response.status === 200) {
           setLoginFormMessage("Account created. Check your email to verify it");
@@ -179,6 +180,7 @@ export function Login() {
   }
 
   function handleSetPhone(receivedPhone: string) {
+    // eslint-disable-next-line no-useless-escape
     const validation = new RegExp(/^[0-9\b\+\-\(\)]+$/);
 
     if (receivedPhone === "" || validation.test(receivedPhone)) {
@@ -221,6 +223,21 @@ export function Login() {
   return (
     <>
       <div className="backgroundColor"></div>
+      <div
+        style={{
+          color: "red",
+          position: "absolute",
+          zIndex: "2",
+          backgroundColor: "white",
+          padding: "1rem",
+          fontWeight: "bold",
+          right: "2rem",
+          top: "2rem",
+          fontSize: "1.4rem",
+        }}
+      >
+        UNDER MAINTENANCE
+      </div>
       {!isMobile && (
         <>
           <video id="myVideo" autoPlay loop muted>
